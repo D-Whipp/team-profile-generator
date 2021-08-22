@@ -1,26 +1,4 @@
-const fs = require("fs");
-const inquirer = require("inquirer");
 
-inquirer
-  .prompt([
-    {
-      type: "input",
-      name: "managerName",
-      message: "What is your manager's name? (Required)",
-      validate: (nameInput) => {
-        if (nameInput) {
-          return true;
-        } else {
-          console.log("Enter the manager's name!");
-          return false;
-        }
-      },
-    },
-  ])
-  .then(function (data) {
-    console.log(data);
-
-    const indexData = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -41,19 +19,10 @@ inquirer
         <div class="container">
             <div class="row">
                 <div class="col-12 justify-content-center d-flex">
-                    <h2>${data.managerName}</h2>
+                    <h2>David</h2>
                 </div>
             </div>
         </div>
     </body>
     </html>
-    `;
-
-    fs.writeFile("index.html", indexData, (error) => {
-      if (error) {
-        console.log("Error: ", error);
-      } else {
-        console.log("index.html created successfully!");
-      }
-    });
-  });
+    
