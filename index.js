@@ -96,6 +96,9 @@ function app() {
             break;
           default:
             console.log("Goodbye!");
+            for (let i = 0; i < teamMembers.length; i++) {
+              console.log(teamMembers[i]);
+            }
             break;
         }
       });
@@ -226,17 +229,13 @@ function app() {
         },
       ])
       .then(function (data) {
-        console.log(data);
-
         const intern = new Intern(
           data.internName,
           data.internID,
           data.internEmail,
           data.internSchool
         );
-        console.log(intern);
         teamMembers.push(intern);
-        console.log(teamMembers);
         addTeamMember();
       });
   }
