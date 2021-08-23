@@ -97,7 +97,7 @@ function app() {
           default:
             console.log("Goodbye!");
             for (let i = 0; i < teamMembers.length; i++) {
-              console.log(teamMembers[i]);
+              console.log(teamMembers[i].keys());
             }
             break;
         }
