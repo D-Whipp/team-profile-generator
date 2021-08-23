@@ -4,9 +4,11 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
+const teamMembers = [];
+
 function app() {
   function createManager() {
-    console.log("Please build your team: ");
+    console.log("Build your team: ");
     inquirer
       .prompt([
         {
@@ -70,10 +72,105 @@ function app() {
           data.managerEmail,
           data.managerOfficeNumber
         );
+        // createTeam();
+      });
+    console.log(manager);
 
-        console.log(manager);
+    // function createTeam() {
+    //   inquirer
+    //     .prompt([
+    //       {
+    //         type: "list",
+    //         name: "memberChoice",
+    //         message: "Which type of team member would you like to add? ",
+    //         choices: [
+    //           "Engineer",
+    //           "Intern",
+    //           "I don't want to add any more team members",
+    //         ],
+    //       },
+    //     ])
+    //     .then((userChoice) => {
+    //       switch (userChoice.memberChoice) {
+    //         case "Engineer":
+    //           addEngineer();
+    //           break;
+    //           addIntern();
+    //           break;
+    //         default:
+    //           console.log("Got here!");
+    //       }
+    //     });
+    // }
 
-        const indexData = `
+    // function addEngineer() {
+    //   inquirer
+    //     .prompt([
+    //       {
+    //         type: "input",
+    //         name: "engineerName",
+    //         message: "What is your engineer's name",
+    //         validate: (engineerNameInput) => {
+    //           if (engineerNameInput) {
+    //             return true;
+    //           } else {
+    //             console.log("Enter your engineer's name: (REQUIRED)");
+    //             return false;
+    //           }
+    //         },
+    //       },
+    //       {
+    //         type: "input",
+    //         name: "engineerID",
+    //         message: "Please enter your engineer's ID: ",
+    //         validate: (engineerIDInput) => {
+    //           if (engineerIDInput) {
+    //             return true;
+    //           } else {
+    //             console.log("Please enter you engineer's ID: (REQUIRED)");
+    //             return false;
+    //           }
+    //         },
+    //       },
+    //       {
+    //         type: "input",
+    //         name: "engineerEmail",
+    //         message: "Enter your engineer's Email: ",
+    //         validate: (engineerEmailInput) => {
+    //           if (engineerEmailInput) {
+    //             return true;
+    //           } else {
+    //             console.log("Enter your engineer's Email: (REQUIRED)");
+    //             return false;
+    //           }
+    //         },
+    //       },
+    //       {
+    //         type: "input",
+    //         name: "engineerGitHub",
+    //         message: "Enter your engineer's GitHub: ",
+    //         validate: (engineerGitHubInput) => {
+    //           if (engineerGitHubInput) {
+    //             return true;
+    //           } else {
+    //             console.log("Enter your engineer's GitHub: (REQUIRED)");
+    //             return false;
+    //           }
+    //         },
+    //       },
+    //     ])
+    //     .then(function (data) {
+    //       const engineer = new Engineer(
+    //         data.engineerName,
+    //         data.engineerID,
+    //         data.engineerEmail,
+    //         data.engineerGitHub
+    //       );
+    //       console.log(engineer);
+    //     });
+    // }
+
+    const indexData = `
             <!DOCTYPE html>
             <html lang="en">
             <head>
@@ -100,15 +197,9 @@ function app() {
                                     <h3 class="card-title"><i class="fas fa-coffee"></i> Manager</h3>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-text">ID: ${
-                                      data.managerID
-                                    }</h5>
-                                    <h5 class="card-text">Email: ${
-                                      data.managerEmail
-                                    }</h5>
-                                    <h5 class="card-text">Office Number: ${
-                                      data.managerOfficeNumber
-                                    }</h5>
+                                    <h5 class="card-text">ID: ${manager.getID()}</h5>
+                                    <h5 class="card-text">Email: ${manager.getEmail()}</h5>
+                                    <h5 class="card-text">Office Number: ${manager.getOfficeNumber()}</h5>
                                 </div>
                             </div>
                         </div>
@@ -118,14 +209,13 @@ function app() {
             </html>
             `;
 
-        fs.writeFile("index.html", indexData, (error) => {
-          if (error) {
-            console.log("Error: ", error);
-          } else {
-            console.log("index.html created successfully!");
-          }
-        });
-      });
+    fs.writeFile("index.html", indexData, (error) => {
+      if (error) {
+        console.log("Error: ", error);
+      } else {
+        console.log("index.html created successfully!");
+      }
+    });
   }
 
   createManager();
