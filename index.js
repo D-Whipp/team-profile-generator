@@ -64,7 +64,6 @@ function app() {
         },
       ])
       .then(function (data) {
-        console.log(data);
         const manager = new Manager(
           data.managerName,
           data.managerID,
@@ -73,10 +72,57 @@ function app() {
         );
 
         teamMembers.push(manager);
-        console.log(teamMembers);
-        console.log(manager);
+        addTeamMember();
       });
   }
+
+  function addTeamMember() {
+    inquirer
+      .prompt([
+        {
+          type: "list",
+          name: "teamMemberChoice",
+          message: "Select a Team Member to add to your team: ",
+          choices: ["Engineer", "Intern", "All done!"],
+        },
+      ])
+      .then((userChoice) => {
+        switch (userChoice.teamMemberChoice) {
+          case "Engineer":
+            createEngi();
+            break;
+          case "Intern":
+            createIntern();
+            break;
+          default:
+            console.log("Goodbye!");
+            break;
+        }
+      });
+  }
+
+  function createEngi() {
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "engiName",
+          message: "Enter Engineer name: (Required)",
+          validate: (answer) => {
+            if (answer) {
+              return true;
+            } else {
+              console.log("Enter Engineer name: (Required)");
+              return false;
+            }
+          },
+        },
+      ])
+      .then(function (data) {
+        console.log(data);
+      });
+  }
+
   createManager();
 }
 
