@@ -185,12 +185,59 @@ function app() {
             }
           },
         },
+        {
+          type: "input",
+          name: "internID",
+          message: "Enter Intern ID: (Required)",
+          validate: (answer) => {
+            if (answer) {
+              return true;
+            } else {
+              console.log("Enter Intern ID: (Required)");
+              return false;
+            }
+          },
+        },
+        {
+          type: "input",
+          name: "internEmail",
+          message: "Enter Intern Email: (Required)",
+          validate: (answer) => {
+            if (answer) {
+              return true;
+            } else {
+              console.log("Enter Intern Email: (Required)");
+              return false;
+            }
+          },
+        },
+        {
+          type: "input",
+          name: "internSchool",
+          message: "Enter Intern School: (Required)",
+          validate: (answer) => {
+            if (answer) {
+              return true;
+            } else {
+              console.log("Enter Intern School: (Required)");
+              return false;
+            }
+          },
+        },
       ])
       .then(function (data) {
         console.log(data);
 
-        const intern = new Intern(data.internName);
+        const intern = new Intern(
+          data.internName,
+          data.internID,
+          data.internEmail,
+          data.internSchool
+        );
         console.log(intern);
+        teamMembers.push(intern);
+        console.log(teamMembers);
+        addTeamMember();
       });
   }
 
