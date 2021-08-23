@@ -1,5 +1,24 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+
+function createCard(data) {
+  return `
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">${managerName}</h2>
+            <h3 class="card-title"><i class="fas fa-coffee"></i>Manager</h3>
+        </div>
+        <div class="card-body">
+            <h5 class="card-text">ID: ${managerID}</h5>
+            <h5 class="card-text">Email: ${managerEmail}</h5>
+            <h5 class="card-text">Office Number: ${managerOfficeNumber}</h5>
+        </div>
+    </div>
+    `;
+}
 
 inquirer
   .prompt([
@@ -16,6 +35,11 @@ inquirer
         }
       },
     },
+    {
+      type: "input",
+      name: "managerTitle",
+      message: "What is ",
+    },
   ])
   .then(function (data) {
     console.log(data);
@@ -30,7 +54,7 @@ inquirer
         <title>My Team</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/14f10ad80a.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="style.css>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div class="jumbotron bg-danger">
