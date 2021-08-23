@@ -15,8 +15,8 @@ function app() {
           type: "input",
           name: "managerName",
           message: "What is your manager's name? (REQUIRED)",
-          validate: (nameInput) => {
-            if (nameInput) {
+          validate: (managerNameInput) => {
+            if (managerNameInput) {
               return true;
             } else {
               console.log("Enter the manager's name!");
@@ -72,6 +72,7 @@ function app() {
           data.managerEmail,
           data.managerOfficeNumber
         );
+        teamMembers.push(manager);
         // createTeam();
       });
     console.log(manager);
