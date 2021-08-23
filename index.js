@@ -68,8 +68,12 @@ function app() {
         const manager = new Manager(
           data.managerName,
           data.managerID,
-          data.managerEmail
+          data.managerEmail,
+          data.managerID
         );
+
+        teamMembers.push(manager);
+        console.log(teamMembers);
         console.log(manager);
       });
   }
