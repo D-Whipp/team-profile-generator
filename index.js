@@ -169,6 +169,31 @@ function app() {
       });
   }
 
+  function createIntern() {
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "internName",
+          message: "Enter Intern name: (Required)",
+          validate: (answer) => {
+            if (answer) {
+              return true;
+            } else {
+              console.log("Enter Intern name: (Required)");
+              return false;
+            }
+          },
+        },
+      ])
+      .then(function (data) {
+        console.log(data);
+
+        const intern = new Intern(data.internName);
+        console.log(intern);
+      });
+  }
+
   createManager();
 }
 
