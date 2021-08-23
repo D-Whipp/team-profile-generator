@@ -43,12 +43,44 @@ const createManagerCard = function () {
     <div class="card">
         <div class="card-header">
             <h2 class="card-title"></h2>
-            <h3 class="card-title">i class="fas fa-coffee"></i></h3>
+            <h3 class="card-title"><i class="fas fa-coffee"></i></h3>
         </div>
         <div class="card-body">
             <h5 class="card-text">ID: </h5>
             <h5 class="card-text">Email: </h5>
             <h5 class="card-text">Office Number: </h5>
+        </div>
+    </div>
+    `;
+};
+
+const createEngiCard = function () {
+  return `
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title"></h2>
+            <h3 class="card-title"><i class="fas fa-glasses"></i></h3>
+        </div>
+        <div class="card-body">
+            <h5 class="card-text">ID: </h5>
+            <h5 class="card-text">Email: </h5>
+            <h5 class="card-text">GitHub: </h5>
+        </div>
+    </div>
+    `;
+};
+
+const createInternCard = function () {
+  return `
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title"></h2>
+            <h3 class="card-title"><i class="far fa-user-circle"></i></h3>
+        </div>
+        <div class="card-body">
+            <h5 class="card-text">ID: </h5>
+            <h5 class="card-text">Email: </h5>
+            <h5 class="card-text">School: </h5>
         </div>
     </div>
     `;
