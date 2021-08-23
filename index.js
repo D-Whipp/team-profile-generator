@@ -117,9 +117,55 @@ function app() {
             }
           },
         },
+        {
+          type: "input",
+          name: "engiID",
+          message: "Enter Engineer ID: (Required)",
+          validate: (answer) => {
+            if (answer) {
+              return true;
+            } else {
+              console.log("Enter Engineer ID: (Required)");
+              return false;
+            }
+          },
+        },
+        {
+          type: "input",
+          name: "engiEmail",
+          message: "Enter Engineer Email: (Required)",
+          validate: (answer) => {
+            if (answer) {
+              return true;
+            } else {
+              console.log("Enter Engineer Email: (Required)");
+              return false;
+            }
+          },
+        },
+        {
+          type: "input",
+          name: "engiGitHub",
+          message: "Enter Engineer GitHub: (Required)",
+          validate: (answer) => {
+            if (answer) {
+              return true;
+            } else {
+              console.log("Enter Engineer GitHub: (Required)");
+              return false;
+            }
+          },
+        },
       ])
       .then(function (data) {
-        console.log(data);
+        const engineer = new Engineer(
+          data.engiName,
+          data.engiID,
+          data.engiEmail,
+          data.engiGitHub
+        );
+        teamMembers.push(engineer);
+        addTeamMember();
       });
   }
 
