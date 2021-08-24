@@ -243,7 +243,10 @@ function app() {
     console.log("teamContainer: ", teamContainer);
 
     for (let index = 0; index < teamContainer.length; index++) {
-      console.log("Looping through teamContainer: ", teamContainer[index]);
+      console.log(
+        "Looping through teamContainer: ",
+        teamContainer[index].constructor.name
+      );
     }
   }
 
