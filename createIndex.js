@@ -43,9 +43,7 @@ const createInternCard = function () {
         </div>
         <div class="card-body">
         <h5 class="card-text">ID: ${intern.getID()}</h5>
-        <h5 class="card-text">Email: <a href="mailto:${
-          inter.getEmail
-        }"> ${intern.getEmail()}</a></h5>
+        <h5 class="card-text">Email: <a href="mailto:${intern.getEmail()}"> ${intern.getEmail()}</a></h5>
         <h5 class="card-text">School: ${intern.getSchool()}</h5>
         </div>
         </div>

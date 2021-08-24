@@ -289,9 +289,7 @@ function app() {
             </div>
             <div class="card-body">
             <h5 class="card-text">ID: ${intern.getID()}</h5>
-            <h5 class="card-text">Email: <a href="mailto:${
-              inter.getEmail
-            }"> ${intern.getEmail()}</a></h5>
+            <h5 class="card-text">Email: <a href="mailto:${intern.getEmail()}"> ${intern.getEmail()}</a></h5>
             <h5 class="card-text">School: ${intern.getSchool()}</h5>
             </div>
             </div>
@@ -353,6 +351,10 @@ function app() {
         engineer = teamContainer[index];
         const e = createEngiCard();
         console.log("Engineer Card: ", e);
+      } else if (teamContainer[index].constructor.name === "Intern") {
+        intern = teamContainer[index];
+        const i = createInternCard();
+        console.log("Intern Card: ", i);
       }
     }
   }
