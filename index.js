@@ -275,7 +275,7 @@ function app() {
             <h5 class="card-text">Email: <a href="mailto${engineer.getEmail()}"> ${engineer.getEmail()}</a></h5>
             <h5 class="card-text">GitHub: <a href="https://github.com/${
               engineer.getGitHub
-            }" ${engineer.getGitHub()}</a></h5>
+            }" ${engineer.getGitHub()}</a>${engineer.getGitHub()}</h5>
             </div>
             </div>
             `;
@@ -368,6 +368,13 @@ function app() {
       const finishedHTML = createIndexHtml();
       console.log(finishedHTML);
       // console.log(populatedTeam);
+      fs.writeFile("index.html", finishedHTML, (error) => {
+        if (error) {
+          console.log("Error: ", error);
+        } else {
+          console.log("index.html file created successfully!");
+        }
+      });
     }
   }
 
