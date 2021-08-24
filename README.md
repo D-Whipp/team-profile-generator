@@ -2,7 +2,7 @@
 
 ## Descriptiton
 
-This app uses Javascript, Node, Inquirer, and FS to take user input and build a custom html page for their team. It's built with a focus on Object Oriented Programming to make it's code less repetitive.
+This app uses Javascript, Node, Inquirer, and FS to take user input and build a custom html page for their team. It's built with a focus on Object Oriented Programming to make it's code less repetitive. To see a demonstration of this app look in assets/vid directory!
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@ To use this app you must download the source code. Use Node to run the app by ty
 
 ## Usage
 
-To use this app follow the Installation directions above then answer the prompts that will appear in the Command Line. Once you've finished building your team select "All Done". To view the WebPage open the index.html file that was created in your browser.
+To use this app follow the Installation directions above then answer the prompts that will appear in the Command Line. Once you've finished building your team select "All Done". To view the WebPage open the index.html file that was created in your browser. You can find a video of demonstrating this app in the assets/vid folder.
 
 ![Screenshot](assets/img/index-html-screenshot.png)
 
