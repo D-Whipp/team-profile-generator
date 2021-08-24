@@ -68,7 +68,7 @@ function app() {
           data.managerName,
           data.managerID,
           data.managerEmail,
-          data.managerID
+          data.managerOfficeNumber
         );
 
         teamMembers.push(manager);
@@ -96,6 +96,7 @@ function app() {
             break;
           default:
             console.log("Goodbye!");
+            createTeam();
             break;
         }
       });
@@ -226,19 +227,134 @@ function app() {
         },
       ])
       .then(function (data) {
-        console.log(data);
-
         const intern = new Intern(
           data.internName,
           data.internID,
           data.internEmail,
           data.internSchool
         );
-        console.log(intern);
         teamMembers.push(intern);
-        console.log(teamMembers);
         addTeamMember();
       });
+  }
+
+  function createTeam() {
+    teamContainer = teamMembers;
+    // console.log("teamContainer: ", teamContainer);
+
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // PAGE CONSTRUCTOR START
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    const createManagerCard = function () {
+      return `
+          <div class="card">
+          <div class="card-header">
+          <h2 class="card-title">${manager.getName()}</h2>
+          <h3 class="card-title"><i class="fas fa-coffee"></i>${manager.getRole()}</h3>
+          </div>
+          <div class="card-body">
+          <h5 class="card-text">ID: ${manager.getID()}</h5>
+          <h5 class="card-text">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></h5>
+          <h5 class="card-text">Office Number: ${manager.getOfficeNumber()}</h5>
+          </div>
+          </div>
+          `;
+    };
+
+    const createEngiCard = function () {
+      return `
+            <div class="card">
+            <div class="card-header">
+            <h2 class="card-title">${engineer.getName()}</h2>
+            <h3 class="card-title"><i class="fas fa-glasses"></i>${engineer.getRole()}</h3>
+            </div>
+            <div class="card-body">
+            <h5 class="card-text">ID: ${engineer.getID()}</h5>
+            <h5 class="card-text">Email: <a href="mailto${engineer.getEmail()}"> ${engineer.getEmail()}</a></h5>
+            <h5 class="card-text">GitHub: <a href="https://github.com/${
+              engineer.getGitHub
+            }" ${engineer.getGitHub()}</a></h5>
+            </div>
+            </div>
+            `;
+    };
+
+    const createInternCard = function () {
+      return `
+            <div class="card">
+            <div class="card-header">
+            <h2 class="card-title">${intern.getName()}</h2>
+            <h3 class="card-title"><i class="far fa-user-circle"></i>${intern.getRole()}</h3>
+            </div>
+            <div class="card-body">
+            <h5 class="card-text">ID: ${intern.getID()}</h5>
+            <h5 class="card-text">Email: <a href="mailto:${
+              inter.getEmail
+            }"> ${intern.getEmail()}</a></h5>
+            <h5 class="card-text">School: ${intern.getSchool()}</h5>
+            </div>
+            </div>
+            `;
+    };
+
+    const createIndexHtml = function () {
+      return `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width", initial-scale=1.0" />
+            <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+            <title>My Team</title>
+            <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+          />
+          <script
+          src="https://kit.fontawesome.com/14f10ad80a.js"
+          crossorigin="anonymous"
+          ></script>
+        </head>
+    
+        <body>
+            <div class="jumbotron bg-danger">
+                <div class="container">
+                    <h1 class="display-4 text-light">My Team</h1>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 justify-content-center d-flex">
+                    </div>
+                </div>
+            </div>
+        </body>
+        </html>
+        `;
+    };
+
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // PAGE CONSTRUCTOR END
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    for (let index = 0; index < teamContainer.length; index++) {
+      // console.log(
+      //   "Looping through teamContainer: ",
+      //   teamContainer[index].constructor.name
+      // );
+      if (teamContainer[index].constructor.name === "Manager") {
+        manager = teamContainer[index];
+        const m = createManagerCard();
+        console.log("Manager Card: ", m);
+      } else if (teamContainer[index].constructor.name === "Engineer") {
+        engineer = teamContainer[index];
+        const e = createEngiCard();
+        console.log("Engineer Card: ", e);
+      }
+    }
   }
 
   createManager();
