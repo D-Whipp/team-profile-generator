@@ -96,9 +96,7 @@ function app() {
             break;
           default:
             console.log("Goodbye!");
-            for (let i = 0; i < teamMembers.length; i++) {
-              console.log(teamMembers[i].keys());
-            }
+            createTeam();
             break;
         }
       });
@@ -238,6 +236,15 @@ function app() {
         teamMembers.push(intern);
         addTeamMember();
       });
+  }
+
+  function createTeam() {
+    teamContainer = teamMembers;
+    console.log("teamContainer: ", teamContainer);
+
+    for (let index = 0; index < teamContainer.length; index++) {
+      console.log("Looping through teamContainer: ", teamContainer[index]);
+    }
   }
 
   createManager();
