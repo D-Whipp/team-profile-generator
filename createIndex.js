@@ -1,8 +1,7 @@
 const fs = require("fs");
 
-const createTeam = (team) => {
-  const createManagerCard = function () {
-    return `
+const createManagerCard = function () {
+  return `
       <div class="card">
       <div class="card-header">
       <h2 class="card-title">${manager.getName()}</h2>
@@ -15,10 +14,10 @@ const createTeam = (team) => {
       </div>
       </div>
       `;
-  };
+};
 
-  const createEngiCard = function () {
-    return `
+const createEngiCard = function () {
+  return `
         <div class="card">
         <div class="card-header">
         <h2 class="card-title">${engineer.getName()}</h2>
@@ -33,10 +32,10 @@ const createTeam = (team) => {
         </div>
         </div>
         `;
-  };
+};
 
-  const createInternCard = function () {
-    return `
+const createInternCard = function () {
+  return `
         <div class="card">
         <div class="card-header">
         <h2 class="card-title">${intern.getName()}</h2>
@@ -51,7 +50,6 @@ const createTeam = (team) => {
         </div>
         </div>
         `;
-  };
 };
 
 const createIndexHtml = function () {
