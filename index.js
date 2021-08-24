@@ -327,7 +327,7 @@ function app() {
             <div class="container">
                 <div class="row">
                     <div class="col-12 justify-content-center d-flex">
-                    ${populatedTeam}
+                    ${populatedTeam.join("")}
                     </div>
                 </div>
             </div>
@@ -356,14 +356,18 @@ function app() {
         const e = createEngiCard();
         // console.log("Engineer Card: ", e);
         populatedTeam.push(e);
+        // populatedTeam.join("");
       } else if (teamContainer[index].constructor.name === "Intern") {
         intern = teamContainer[index];
         const i = createInternCard();
         // console.log("Intern Card: ", i);
         populatedTeam.push(i);
+        // populatedTeam.join("");
       }
+      // populatedTeam.join("");
+      const finishedHTML = createIndexHtml();
+      console.log(finishedHTML);
       // console.log(populatedTeam);
-      createIndexHtml();
     }
   }
 
