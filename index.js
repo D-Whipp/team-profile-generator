@@ -240,6 +240,7 @@ function app() {
 
   function createTeam() {
     teamContainer = teamMembers;
+    populatedTeam = [];
     // console.log("teamContainer: ", teamContainer);
 
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -289,9 +290,7 @@ function app() {
             </div>
             <div class="card-body">
             <h5 class="card-text">ID: ${intern.getID()}</h5>
-            <h5 class="card-text">Email: <a href="mailto:${
-              inter.getEmail
-            }"> ${intern.getEmail()}</a></h5>
+            <h5 class="card-text">Email: <a href="mailto:${intern.getEmail()}"> ${intern.getEmail()}</a></h5>
             <h5 class="card-text">School: ${intern.getSchool()}</h5>
             </div>
             </div>
@@ -328,6 +327,7 @@ function app() {
             <div class="container">
                 <div class="row">
                     <div class="col-12 justify-content-center d-flex">
+                    ${populatedTeam.join("")}
                     </div>
                 </div>
             </div>
@@ -348,12 +348,26 @@ function app() {
       if (teamContainer[index].constructor.name === "Manager") {
         manager = teamContainer[index];
         const m = createManagerCard();
-        console.log("Manager Card: ", m);
+        // console.log("Manager Card: ", m);
+        populatedTeam.push(m);
+        // console.log(populatedTeam);
       } else if (teamContainer[index].constructor.name === "Engineer") {
         engineer = teamContainer[index];
         const e = createEngiCard();
-        console.log("Engineer Card: ", e);
+        // console.log("Engineer Card: ", e);
+        populatedTeam.push(e);
+        // populatedTeam.join("");
+      } else if (teamContainer[index].constructor.name === "Intern") {
+        intern = teamContainer[index];
+        const i = createInternCard();
+        // console.log("Intern Card: ", i);
+        populatedTeam.push(i);
+        // populatedTeam.join("");
       }
+      // populatedTeam.join("");
+      const finishedHTML = createIndexHtml();
+      console.log(finishedHTML);
+      // console.log(populatedTeam);
     }
   }
 
